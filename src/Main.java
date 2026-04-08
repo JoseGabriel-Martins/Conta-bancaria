@@ -22,7 +22,6 @@ public class Main {
             System.out.println("Realizar um depósito inicial S/N? ");
             char respostaDeposito = sc.nextLine().toUpperCase().charAt(0);
 
-
             if (respostaDeposito == 'S') {
                 System.out.println("Digite o valor a ser depositado: ");
                 double valorDeposito = sc.nextDouble();
@@ -34,21 +33,17 @@ public class Main {
             }
         }
 
-
-
-        System.out.println("Account data:");
-        System.out.printf("Account: %d, Holder: %s, Balance: R$: %.2f %n" , numeroConta, titularConta, conta.getSaldo());
+        for(int i = 0; i < vect.length; i++){
+            System.out.println(vect[i].toString());
+        }
 
         System.out.println("Digite o valor a ser depositado: ");
-        conta.deposito(sc.nextDouble());
-        System.out.printf("Saldo: %s %n", conta.getSaldo());
+        vect[0].deposito(sc.nextDouble());
+        System.out.printf("Saldo: %s %n", vect[0].getSaldo());
 
         System.out.println("Digite o valor a ser sacado: ");
-        conta.saque(sc.nextDouble());
-        System.out.printf("Saldo após saque: %s %n", conta.getSaldo());
-
-        System.out.println("Informações atuais da conta:");
-        System.out.println(conta.toString());
+        vect[0].saque(sc.nextDouble());
+        System.out.printf("Saldo após saque: %s %n", vect[0].getSaldo());
 
         sc.close();
     }
