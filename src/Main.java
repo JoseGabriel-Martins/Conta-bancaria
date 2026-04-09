@@ -8,15 +8,13 @@ public class Main {
 
         System.out.println("Informe quantas contas serão criadas: ");
         int n = sc.nextInt();
+        sc.nextLine();
         Conta[] vect = new Conta[n];
 
         for (int i = 0; i < vect.length; i++) {
-            System.out.println("Essa é a conta na posição: " + i);
-            System.out.println("Informe o numero da conta: ");
-            int numeroConta = sc.nextInt();
-
+            int numeroConta = i;
+            System.out.println("Numero da conta: " + i);
             System.out.println("Informe o nome do titular da conta: ");
-            sc.nextLine();
             String titularConta = sc.nextLine();
 
             System.out.println("Realizar um depósito inicial S/N? ");
@@ -33,18 +31,48 @@ public class Main {
             }
         }
 
+        int totalContas = vect.length;
+        String estatus = (totalContas == 1) ? "Estatus da conta:" : "Estatus das contas:";
+
         for(int i = 0; i < vect.length; i++){
+            System.out.println(estatus);
             System.out.println(vect[i].toString());
         }
 
-        System.out.println("Digite o valor a ser depositado: ");
-        vect[0].deposito(sc.nextDouble());
-        System.out.printf("Saldo: %s %n", vect[0].getSaldo());
+        int opcao = 0;
+        int indice = 0;
 
-        System.out.println("Digite o valor a ser sacado: ");
-        vect[0].saque(sc.nextDouble());
-        System.out.printf("Saldo após saque: %s %n", vect[0].getSaldo());
+        while(opcao != 4) {
+            if (vect.length > 0){
+                System.out.println("Digite o numero da conta:");
+                indice = sc.nextInt();
+            }
+            else{
+                indice = 0;
+            }
+            System.out.println("Escolha uma opção:");
+            System.out.println("-1 Estatus da Conta:");
+            System.out.println("-2 Depositar:");
+            System.out.println("-3 Sacar:");
+            System.out.println("-4 Sair:");
+            opcao = sc.nextInt();
 
+            switch (opcao) {
+                case 1:
+                    System.out.println(vect[indice].toString());
+                    break;
+                case 2:
+                    System.out.println("Digite o valor a ser depositado: ");
+                    vect[indice].deposito(sc.nextDouble());
+                    System.out.printf("Saldo atual: R$%s %n", vect[indice].getSaldo());
+                    break;
+                case 3:
+                    System.out.println("Digite o valor a ser sacado: ");
+                    vect[indice].saque(sc.nextDouble());
+                    System.out.printf("Saldo atual: R$%s %n", vect[indice].getSaldo());
+                    break;
+            }
+        }
         sc.close();
     }
 }
