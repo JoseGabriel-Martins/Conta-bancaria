@@ -34,16 +34,16 @@ public class Main {
         int totalContas = vect.length;
         String estatus = (totalContas == 1) ? "Estatus da conta:" : "Estatus das contas:";
 
-        for(int i = 0; i < vect.length; i++){
+        for(Conta informacao: vect){
             System.out.println(estatus);
-            System.out.println(vect[i].toString());
+            System.out.println(informacao.toString());
         }
 
         int opcao = 0;
         int indice = 0;
 
         while(opcao != 4) {
-            if (vect.length > 0){
+            if (vect.length > 1){
                 System.out.println("Digite o numero da conta:");
                 indice = sc.nextInt();
             }
