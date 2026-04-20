@@ -1,22 +1,32 @@
 💰 Projeto Conta Bancária - Java (Study Case)
-Este repositório contém um projeto de simulação de sistema bancário desenvolvido em Java, focado em consolidar fundamentos de POO e Estruturas de Dados.
+Este repositório contém um projeto de simulação de sistema bancário desenvolvido em Java, focado em consolidar
+fundamentos de POO e Estruturas de Dados.
 
-🚀 Funcionalidades Atuais (v2.0):
-Gestão Multicontas: Agora utiliza Arrays para gerenciar múltiplas instâncias de contas simultaneamente.
+## 🚀 Evolução Técnica (Refatoração v3.0)
 
-Menu Interativo: Implementação de um fluxo de controle com while e switch-case, permitindo múltiplas operações sem reiniciar o programa.
+Originalmente criado com arrays fixos (vetores), o projeto foi refatorado para utilizar as melhores práticas do Java
+moderno:
 
-Lógica de Identificação: Mapeamento inteligente onde o número da conta corresponde ao índice do vetor, otimizando o acesso aos dados.
+- **Collections Framework:** Implementação de `ArrayList` para gerenciar contas de forma dinâmica, eliminando limitações
+  de tamanho fixo.
+- **Java Stream API:** Utilização de `stream()`, `filter()` e predicados para busca inteligente de contas, substituindo
+  loops `for` manuais por um código mais limpo e funcional.
+- **Gestão de Identidade:** Sistema de IDs (Número da Conta) baseado no estado da coleção, preparando a lógica para
+  futura integração com Bancos de Dados.
 
-UX Refinada: O sistema identifica a quantidade de contas e adapta as perguntas ao usuário (singular/plural e necessidade de seleção de índice).
+## 🛠️ Funcionalidades
 
-🧠 Conceitos Aplicados:
-Encapsulamento e Construtores (Sobrecarga).
+- [x] Cadastro de titular com depósito inicial opcional.
+- [x] Validação de existência de conta (Null Safety).
+- [x] Operações de depósito e saque com atualização de saldo em tempo real.
+- [x] Extrato detalhado utilizando sobrescrita de método `toString()`.
 
-Manipulação de Vetores de Objetos.
+## 💻 Tecnologias e Conceitos
 
-Tratamento de Buffer do Scanner.
-
-Operadores Ternários para mensagens dinâmicas.
+- **Linguagem:** Java 21
+- **Paradigma:** Orientação a Objetos (Encapsulamento, Construtores, Sobrecarga)
+- **Estruturas de Dados:** `List`, `ArrayList`
+- **Processamento:** Lambdas e Stream API
+- **Formatação:** `printf` com localização (Locale.US) para padrões monetários.
 
 Projeto inspirado nos desafios práticos do Prof. Nélio Alves e expandido com lógica autoral.
