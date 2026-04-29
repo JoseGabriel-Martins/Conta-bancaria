@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -53,6 +55,9 @@ public class Main {
         int opcao = 0;
         Conta contaAtiva = contas.stream().filter(x -> x.getNumeroConta() == numeroConta).findFirst().orElse(null);
 
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy HH:mm");
+
         if (contaAtiva != null) {
             while (opcao != 4) {
                 System.out.println("Escolha uma opção:");
@@ -68,11 +73,13 @@ public class Main {
                     case 2:
                         System.out.println("Digite o valor a ser depositado: ");
                         contaAtiva.deposito(sc.nextDouble());
+                        System.out.println("Data/Hora de deposito: " + date.format(formatter));
                         System.out.printf("Saldo atual: R$%.2f %n", contaAtiva.getSaldo());
                         break;
                     case 3:
                         System.out.println("Digite o valor a ser sacado: ");
                         contaAtiva.saque(sc.nextDouble());
+                        System.out.println("Data/Hora de saque: " + date.format(formatter));
                         System.out.printf("Saldo atual: R$%.2f %n", contaAtiva.getSaldo());
                         break;
                 }

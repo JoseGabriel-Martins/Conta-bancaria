@@ -14,12 +14,24 @@ moderno:
 - **Gestão de Identidade:** Sistema de IDs (Número da Conta) baseado no estado da coleção, preparando a lógica para
   futura integração com Bancos de Dados.
 
+## 🚀 Evolução Técnica (Refatoração v4.0 - Atualizado)
+
+-Java Time API: Implementação de LocalDateTime para registro preciso de transações, substituindo strings de data
+manuais por objetos temporais inteligentes.
+-Padronização ISO 8601: Utilização de padrões internacionais para armazenamento de data/hora, garantindo consistência
+técnica nos registros.
+-Formatação Dinâmica: Uso de DateTimeFormatter para converter dados temporais brutos em formatos amigáveis ao usuário
+final (padrão brasileiro dd/MM/yyyy HH:mm).
+
 ## 🛠️ Funcionalidades
 
 - [x] Cadastro de titular com depósito inicial opcional.
 - [x] Validação de existência de conta (Null Safety).
 - [x] Operações de depósito e saque com atualização de saldo em tempo real.
 - [x] Extrato detalhado utilizando sobrescrita de método `toString()`.
+  -Rastreabilidade de Transações: Cada depósito ou saque agora gera um "Timestamp" (carimbo de tempo) automático,
+  exibido no extrato do cliente.
+  -Interface Amigável: Datas e horas formatadas para leitura humana, mantendo a precisão técnica no backend.
 
 ## 💻 Tecnologias e Conceitos
 
